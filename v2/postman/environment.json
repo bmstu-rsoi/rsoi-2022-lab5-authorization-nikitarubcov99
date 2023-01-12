@@ -9,7 +9,7 @@
     },
     {
       "key": "identityProviderUrl",
-      "value": "https://dev-07514377-admin.okta.com",
+      "value": "https://dev-07514377.okta.com",
       "enabled": true
     },
     {
