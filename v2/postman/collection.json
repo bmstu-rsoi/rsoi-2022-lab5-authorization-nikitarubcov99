@@ -32,19 +32,7 @@
           ],
           "request": {
             "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "{{clientSecret}}",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "{{clientId}}",
-                  "type": "string"
-                }
-              ]
+              "type": "noauth"
             },
             "method": "POST",
             "header": [],
@@ -84,7 +72,7 @@
               ]
             },
             "url": {
-              "raw": "{{identityProviderUrl}}/v1/token",
+              "raw": "{{identityProviderUrl}}/oauth2/default/v1/token",
               "host": [
                 "{{identityProviderUrl}}"
               ],
