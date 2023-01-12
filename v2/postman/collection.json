@@ -59,12 +59,12 @@
                   "type": "text"
                 },
                 {
-                  "key": "client_id",
+                  "key": "clientId",
                   "value": "{{clientId}}",
                   "type": "text"
                 },
                 {
-                  "key": "client_secret",
+                  "key": "clientSecret",
                   "value": "{{clientSecret}}",
                   "type": "text"
                 }
