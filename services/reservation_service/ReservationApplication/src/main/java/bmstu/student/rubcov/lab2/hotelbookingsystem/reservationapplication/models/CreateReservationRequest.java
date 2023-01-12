@@ -1,4 +1,4 @@
-package bmstu.rubcov.rubcov.lab2.hotelbookingsystem.reservationapplication.models;
+package bmstu.student.rubcov.lab2.hotelbookingsystem.reservationapplication.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
