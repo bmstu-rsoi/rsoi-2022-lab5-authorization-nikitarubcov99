@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dd403a17-fd76-46c7-b079-57fecf00cc0d",
-		"name": "[rsoi][lab5] Hotels Booking System",
+		"_postman_id": "48138d53-aef9-401f-b9e4-a7f247c55168",
+		"name": "[rsoi][lab5] Hotels Booking System Copy 3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "976707"
+		"_exporter_id": "23637919"
 	},
 	"item": [
 		{
@@ -17,6 +17,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Получить токен\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -31,7 +32,19 @@
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{clientSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{clientId}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -136,6 +149,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Получение списка отелей\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -244,6 +258,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Получение информации о статусе в программе лояльности\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -340,6 +355,7 @@
 									"const moment = require(\"moment\")",
 									"",
 									"pm.test(\"Забронировать отель\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -451,6 +467,54 @@
 					"response": []
 				},
 				{
+					"name": "[filler] Стукнуть k8s по башке чтоб не лагал",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authorizationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{serviceUrl}}/api/v1/reservations/:reservationUid",
+							"host": [
+								"{{serviceUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reservations",
+								":reservationUid"
+							],
+							"variable": [
+								{
+									"key": "reservationUid",
+									"value": "{{reservationUid}}",
+									"description": "UUID бронирования"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "[success] Информация по конкретному бронированию",
 					"event": [
 						{
@@ -460,6 +524,7 @@
 									"const moment = require(\"moment\")",
 									"",
 									"pm.test(\"Получение информации о конкретном бронировании\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -563,6 +628,35 @@
 					"response": []
 				},
 				{
+					"name": "[filler] Стукнуть k8s по башке еще раз",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authorizationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{serviceUrl}}/api/v1/reservations",
+							"host": [
+								"{{serviceUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "[success] Информация по всем бронированиям пользователя",
 					"event": [
 						{
@@ -570,8 +664,8 @@
 							"script": {
 								"exec": [
 									"const moment = require(\"moment\")",
-									"",
 									"pm.test(\"Получение информации по всем бронированиям\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -669,6 +763,35 @@
 					"response": []
 				},
 				{
+					"name": "[filler] Стукнуть k8s по башке в последний раз",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authorizationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{serviceUrl}}/api/v1/me",
+							"host": [
+								"{{serviceUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "[success] Информация о пользователе",
 					"event": [
 						{
@@ -678,6 +801,7 @@
 									"const moment = require(\"moment\")",
 									"",
 									"pm.test(\"Получение информации о пользователе\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
@@ -752,6 +876,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Получение информации о статусе в программе лояльности\", () => {",
+									"    console.log(pm.response.json())",
 									"    pm.response.to.have.status(200)",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 									"",
