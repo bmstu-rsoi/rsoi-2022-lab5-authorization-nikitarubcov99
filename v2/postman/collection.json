@@ -1041,7 +1041,7 @@
   "variable": [
     {
       "key": "serviceUrl",
-      "value": "http://localhost:8080"
+      "value": "158.160.57.21"
     },
     {
       "key": "hotelUid",
