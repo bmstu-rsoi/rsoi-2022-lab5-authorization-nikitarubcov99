@@ -65,4 +65,4 @@ data:
         discount          INT         NOT NULL
     );
     INSERT INTO loyalty (id, username, reservation_count, status, discount)  VALUES
-        (1, 'test@gmail.com', 25, 'GOLD', 10);
+        (1, 'test1@gmail.com', 25, 'GOLD', 10);

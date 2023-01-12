@@ -9,12 +9,12 @@
     },
     {
       "key": "identityProviderUrl",
-      "value": "https://trial-9806087.okta.com",
+      "value": "https://dev-07514377-admin.okta.com",
       "enabled": true
     },
     {
       "key": "username",
-      "value": "test1@gmail.com",
+      "value": "nikitarubstov991@mail.ru",
       "enabled": true
     },
     {
@@ -24,12 +24,12 @@
     },
     {
       "key": "clientId",
-      "value": "0oa3tml9q4ATSwEZa697",
+      "value": "0oa7xt8wfjmloze7w5d7",
       "enabled": true
     },
     {
       "key": "clientSecret",
-      "value": "LFHjef1HZAPVXCGD0f6OjZuGlfZUYnS8sVXMjy9U",
+      "value": "tlbzycre5IZoADgYRFH8hbNJ_bkFNq0mcSN1qTjl",
       "enabled": true
     }
   ],
