@@ -32,19 +32,7 @@
           ],
           "request": {
             "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "password",
-                  "value": "{{clientSecret}}",
-                  "type": "string"
-                },
-                {
-                  "key": "username",
-                  "value": "{{clientId}}",
-                  "type": "string"
-                }
-              ]
+              "type": "noauth"
             },
             "method": "POST",
             "header": [],
@@ -72,12 +60,12 @@
                   "type": "text"
                 },
                 {
-                  "key": "clientId",
+                  "key": "client_id",
                   "value": "{{clientId}}",
                   "type": "text"
                 },
                 {
-                  "key": "clientSecret",
+                  "key": "client_secret",
                   "value": "{{clientSecret}}",
                   "type": "text"
                 }
