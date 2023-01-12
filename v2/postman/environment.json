@@ -9,27 +9,27 @@
     },
     {
       "key": "identityProviderUrl",
-      "value": "https://mail-trial-7149811.okta.com",
+      "value": "trial-9806087.okta.com",
       "enabled": true
     },
     {
       "key": "username",
-      "value": "test1@gmail.com",
+      "value": "nikitarubstov991@mail.ru",
       "enabled": true
     },
     {
       "key": "password",
-      "value": "Password635!",
+      "value": "635Kqpwr123",
       "enabled": true
     },
     {
       "key": "clientId",
-      "value": "0oa3tgr7lcfN4sGb9697",
+      "value": "0oa3tkkcjxyBJQ4pm697",
       "enabled": true
     },
     {
       "key": "clientSecret",
-      "value": "srqB7oy8Z5ezxY092Q-iaqf50rg7IQLKmLPZ9LVn",
+      "value": "W-gxTS5CleVOtETwsGn4qDAIdmRoa1TZXyTRg55V",
       "enabled": true
     }
   ],
