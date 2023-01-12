@@ -4,32 +4,32 @@
   "values": [
     {
       "key": "serviceUrl",
-      "value": "",
+      "value": "158.160.57.21",
       "enabled": true
     },
     {
       "key": "identityProviderUrl",
-      "value": "",
+      "value": "https://trial-7149811.okta.com",
       "enabled": true
     },
     {
       "key": "username",
-      "value": "",
+      "value": "test@gmail.com",
       "enabled": true
     },
     {
       "key": "password",
-      "value": "",
+      "value": "Password635!",
       "enabled": true
     },
     {
       "key": "clientId",
-      "value": "",
+      "value": "0oa3tgr7lcfN4sGb9697",
       "enabled": true
     },
     {
       "key": "clientSecret",
-      "value": "",
+      "value": "srqB7oy8Z5ezxY092Q-iaqf50rg7IQLKmLPZ9LVn",
       "enabled": true
     }
   ],

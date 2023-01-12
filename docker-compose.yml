@@ -1,0 +1,28 @@
+version: "3"
+services:
+  gateway:
+    image: nikitarubcov99/gateway
+    build: ./services/api_gateway/GatewayAPI/
+    ports:
+      - "8080:8080"
+
+  reservation:
+    image: nikitarubcov99/reservation
+    build: ./services/reservation_service/ReservationApplication/
+    ports:
+      - "8070:8070"
+
+  payment:
+    image: nikitarubcov99/payment
+    build: ./services/payment_service/PaymentApplication/
+    ports:
+      - "8060:8060"
+
+  loyalty:
+    image: nikitarubcov99/loyalty
+    build: ./services/loyalty_service/LoyaltyApplication/
+    ports:
+      - "8050:8050"
+
+volumes:
+  db-data:

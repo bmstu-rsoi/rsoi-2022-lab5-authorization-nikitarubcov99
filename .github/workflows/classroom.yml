@@ -15,11 +15,61 @@ jobs:
 
       # TODO build, publish to docker hub, deploy to k8s
 
+      - name: set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.17
+
+      - name: Maven Package API Gateway
+        run: mvn -f ./services/api_gateway/GatewayAPI/pom.xml -B clean package -DskipTests
+
+      - name: Maven Package ReservationApplication
+        run: mvn -f ./services/reservation_service/ReservationApplication/pom.xml -B clean package -DskipTests
+
+      - name: Maven Package PaymentApplication
+        run: mvn -f ./services/payment_service/PaymentApplication/pom.xml -B clean package -DskipTests
+
+      - name: Maven Package LoyaltyApplication
+        run: mvn -f ./services/loyalty_service/LoyaltyApplication/pom.xml -B clean package -DskipTests
+
+      - name: Build images
+        run: docker-compose build
+
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Push
+        run: docker-compose push
+
+      - name: Install Kubectl
+        uses: Azure/setup-kubectl@v3.1
+
+      - name: Create .kube folder
+        run: mkdir $HOME/.kube
+
+      - name: Send YC config to K8S
+        run: cp ./k8s/config $HOME/.kube/config
+
+      - name: Delete old Service pods
+        run: helm delete services
+
+      - name: Delete old Database pods
+        run: helm delete databases
+
+      - name: Deploy DB to YC
+        run: helm install databases k8s/postgres-chart
+
+      - name: Deploy Services to YC
+        run: helm install services k8s/services-chart
+
+      - name: Wait 45 seconds
+        run: sleep 45
+
       - name: Run API Tests
         uses: matt-ball/newman-action@master
         with:
-          collection: <variant>/postman/collection.json
-          environment: <variant>/postman/environment.json
+          collection: v2/postman/collection.json
+          environment: v2/postman/environment.json
           delayRequest: 100
           reporters: '[ "cli" ]'
 

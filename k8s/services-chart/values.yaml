@@ -1,0 +1,31 @@
+loyalty:
+  service:
+    port: 8050
+    image:
+      name: nikitarubcov99/loyalty
+      version: "latest"
+    database:
+      url: "jdbc:postgresql://postgres:5432/loyalties"
+payment:
+  service:
+    port: 8060
+    image:
+      name: nikitarubcov99/payment
+      version: "latest"
+    database: 
+      url: "jdbc:postgresql://postgres:5432/payments"
+reservation:
+  service:
+    port: 8070
+    image:
+      name: nikitarubcov99/reservation
+      version: "latest"
+    database: 
+      url: "jdbc:postgresql://postgres:5432/reservations"
+gateway:
+  service:
+    port: 8080
+    image:
+      name: nikitarubcov99/gateway
+      version: "latest"
+    isGateway: true
