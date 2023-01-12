@@ -17,6 +17,7 @@
               "script": {
                 "exec": [
                   "pm.test(\"Получить токен\", () => {",
+                  "    console.log(pm.response.json())",
                   "    pm.response.to.have.status(200)",
                   "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
                   "",
@@ -31,7 +32,19 @@
           ],
           "request": {
             "auth": {
-              "type": "noauth"
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{clientSecret}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{clientId}}",
+                  "type": "string"
+                }
+              ]
             },
             "method": "POST",
             "header": [],
@@ -1030,7 +1043,7 @@
   "variable": [
     {
       "key": "serviceUrl",
-      "value": "158.160.57.21"
+      "value": "http://localhost:8080"
     },
     {
       "key": "hotelUid",
