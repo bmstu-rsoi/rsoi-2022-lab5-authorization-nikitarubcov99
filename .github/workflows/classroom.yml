@@ -50,11 +50,11 @@ jobs:
       - name: Send YC config to K8S
         run: cp ./k8s/config $HOME/.kube/config
 
-      - name: Delete old Service pods
-        run: helm delete services
-
-      - name: Delete old Database pods
-        run: helm delete databases
+#      - name: Delete old Service pods
+#        run: helm delete services
+#
+#      - name: Delete old Database pods
+#        run: helm delete databases
 
       - name: Deploy DB to YC
         run: helm install databases k8s/postgres-chart
